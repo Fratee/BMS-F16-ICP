@@ -56,3 +56,4 @@ compile_commands.json
 /F16_ICP/build/
 /server/build/
 /server/.qmake.stash
+/server/debug/
