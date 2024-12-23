@@ -761,25 +761,25 @@ Window {
                         sound_scroll.play()
                     }
                 }
-            }
-            onMouseYChanged: {
-                if (parent.simSymSetScrollStart)
-                {
-                    parent.simSymY = mouseY;
-                    parent.simSymSetScrollStart = false
-                }
-
-                var delta = parent.simSymY - mouseY;
-                if (Math.abs(delta) > height / 6.0)
-                {
-                    if (delta > 0) {
-                        client.sendData("SimSymWheelUp");
-                        sound_scroll.play()
-                    } else {
-                        client.sendData("SimSymWheelDn");
-                        sound_scroll.play()
+                onMouseYChanged: {
+                    if (parent.simSymSetScrollStart)
+                    {
+                        parent.simSymY = mouseY;
+                        parent.simSymSetScrollStart = false
                     }
-                    parent.simSymY = mouseY;
+
+                    var delta = parent.simSymY - mouseY;
+                    if (Math.abs(delta) > height / 6.0)
+                    {
+                        if (delta > 0) {
+                            client.sendData("SimSymWheelUp");
+                            sound_scroll.play()
+                        } else {
+                            client.sendData("SimSymWheelDn");
+                            sound_scroll.play()
+                        }
+                        parent.simSymY = mouseY;
+                    }
                 }
             }
         }
