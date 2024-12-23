@@ -20,6 +20,7 @@ qt_add_qml_module(appF16_ICP
         SOURCES tcpclient.h tcpclient.cpp
         SOURCES
         RESOURCES android-sources/AndroidManifest.xml
+        QML_FILES ICPButton.qml ICPWheel.qml
 )
 
 # Add resources

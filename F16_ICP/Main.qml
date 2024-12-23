@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtMultimedia
 import QtCore
+import "qrc:/qt/qml/F16_ICP"
 
 Window {
     id: window
@@ -54,529 +55,178 @@ Window {
         anchors.fill: parent // Make the image cover the entire window
         fillMode: Image.PreserveAspectFit // Ensures the image scales properly
 
-        Rectangle {
+        ICPButton {
             id: button_comm1
+            defaultImage: "qrc:/images/comm1.png"
+            pressedImage: "qrc:/images/comm1-press.png"
+            dataToSend: "SimICPCom1"
             x: window.aButtonsLeft
             y: window.aButtonsTop
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: buttonImage
-                source: "qrc:/images/comm1.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    buttonImage.source = "qrc:/images/comm1-press.png"
-                    client.sendData("SimICPCom1");
-                    sound_press.play()
-                }
-                onReleased: {
-                    buttonImage.source = "qrc:/images/comm1.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_comm2
+            defaultImage: "qrc:/images/comm2.png"
+            pressedImage: "qrc:/images/comm2-press.png"
+            dataToSend: "SimICPCom2"
             x: window.aButtonsLeft + 85
             y: window.aButtonsTop
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_comm2_img
-                source: "qrc:/images/comm2.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_comm2_img.source = "qrc:/images/comm2-press.png"
-                    client.sendData("SimICPCom2");
-                    sound_press.play();
-                }
-                onReleased: {
-                    button_comm2_img.source = "qrc:/images/comm2.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_iff
+            defaultImage: "qrc:/images/iff.png"
+            pressedImage: "qrc:/images/iff-press.png"
+            dataToSend: "SimICPIFF"
             x: window.aButtonsLeft + 85 * 2
             y: window.aButtonsTop
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_iff_img
-                source: "qrc:/images/iff.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_iff_img.source = "qrc:/images/iff-press.png"
-                    client.sendData("SimICPIFF");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_iff_img.source = "qrc:/images/iff.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_list
+            defaultImage: "qrc:/images/list.png"
+            pressedImage: "qrc:/images/list-press.png"
+            dataToSend: "SimICPLIST"
             x: window.aButtonsLeft + 85 * 3
             y: window.aButtonsTop
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_list_img
-                source: "qrc:/images/list.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_list_img.source = "qrc:/images/list-press.png"
-                    client.sendData("SimICPLIST");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_list_img.source = "qrc:/images/list.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_a_a
+            defaultImage: "qrc:/images/a-a.png"
+            pressedImage: "qrc:/images/a-a-press.png"
+            dataToSend: "SimICPAA"
             x: window.aButtonsLeft + 85 * 4
             y: window.aButtonsTop
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_a_a_img
-                source: "qrc:/images/a-a.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_a_a_img.source = "qrc:/images/a-a-press.png"
-                    client.sendData("SimICPAA");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_a_a_img.source = "qrc:/images/a-a.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_a_g
+            defaultImage: "qrc:/images/a-g.png"
+            pressedImage: "qrc:/images/a-g-press.png"
+            dataToSend: "SimICPAG"
             x: window.aButtonsLeft + 85 * 5
             y: window.aButtonsTop
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_a_g_img
-                source: "qrc:/images/a-g.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_a_g_img.source = "qrc:/images/a-g-press.png"
-                    client.sendData("SimICPAG");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_a_g_img.source = "qrc:/images/a-g.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_1
+            defaultImage: "qrc:/images/icp-1.png"
+            pressedImage: "qrc:/images/icp-1-press.png"
+            dataToSend: "SimICPTILS"
             x: window.aButtonsLeft
             y: 106
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_1_img
-                source: "qrc:/images/icp-1.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_1_img.source = "qrc:/images/icp-1-press.png"
-                    client.sendData("SimICPTILS");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_1_img.source = "qrc:/images/icp-1.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_2
+            defaultImage: "qrc:/images/icp-2.png"
+            pressedImage: "qrc:/images/icp-2-press.png"
+            dataToSend: "SimICPALOW"
             x: window.aButtonsLeft + 85 * 1
             y: 106
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_2_img
-                source: "qrc:/images/icp-2.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_2_img.source = "qrc:/images/icp-2-press.png"
-                    client.sendData("SimICPALOW");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_2_img.source = "qrc:/images/icp-2.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_3
+            defaultImage: "qrc:/images/icp-3.png"
+            pressedImage: "qrc:/images/icp-3-press.png"
+            dataToSend: "SimICPTHREE"
             x: window.aButtonsLeft + 85 * 2
             y: 106
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_3_img
-                source: "qrc:/images/icp-3.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_3_img.source = "qrc:/images/icp-3-press.png"
-                    client.sendData("SimICPTHREE");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_3_img.source = "qrc:/images/icp-3.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_rcl
+            defaultImage: "qrc:/images/icp-rcl.png"
+            pressedImage: "qrc:/images/icp-rcl-press.png"
+            dataToSend: "SimICPCLEAR"
             x: window.aButtonsLeft + 85 * 3 + 20
             y: 106
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_rcl_img
-                source: "qrc:/images/icp-rcl.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_rcl_img.source = "qrc:/images/icp-rcl-press.png"
-                    client.sendData("SimICPCLEAR");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_rcl_img.source = "qrc:/images/icp-rcl.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_4
+            defaultImage: "qrc:/images/icp-4.png"
+            pressedImage: "qrc:/images/icp-4-press.png"
+            dataToSend: "SimICPStpt"
             x: window.aButtonsLeft + 85 * 0
             y: 198
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_4_img
-                source: "qrc:/images/icp-4.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_4_img.source = "qrc:/images/icp-4-press.png"
-                    client.sendData("SimICPStpt");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_4_img.source = "qrc:/images/icp-4.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_5
+            defaultImage: "qrc:/images/icp-5.png"
+            pressedImage: "qrc:/images/icp-5-press.png"
+            dataToSend: "SimICPCrus"
             x: window.aButtonsLeft + 85 * 1
             y: 198
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_5_img
-                source: "qrc:/images/icp-5.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_5_img.source = "qrc:/images/icp-5-press.png"
-                    client.sendData("SimICPCrus");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_5_img.source = "qrc:/images/icp-5.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_6
+            defaultImage: "qrc:/images/icp-6.png"
+            pressedImage: "qrc:/images/icp-6-press.png"
+            dataToSend: "SimICPSIX"
             x: window.aButtonsLeft + 85 * 2
             y: 198
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_6_img
-                source: "qrc:/images/icp-6.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_6_img.source = "qrc:/images/icp-6-press.png"
-                    client.sendData("SimICPSIX");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_6_img.source = "qrc:/images/icp-6.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_enter
+            defaultImage: "qrc:/images/icp-enter.png"
+            pressedImage: "qrc:/images/icp-enter-press.png"
+            dataToSend: "SimICPEnter"
             x: window.aButtonsLeft + 85 * 3 + 20
             y: 198
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_enter_img
-                source: "qrc:/images/icp-enter.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_enter_img.source = "qrc:/images/icp-enter-press.png"
-                    client.sendData("SimICPEnter");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_enter_img.source = "qrc:/images/icp-enter.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_7
+            defaultImage: "qrc:/images/icp-7.png"
+            pressedImage: "qrc:/images/icp-7-press.png"
+            dataToSend: "SimICPMark"
             x: window.aButtonsLeft + 85 * 0
             y: 289
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_7_img
-                source: "qrc:/images/icp-7.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_7_img.source = "qrc:/images/icp-7-press.png"
-                    client.sendData("SimICPMark");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_7_img.source = "qrc:/images/icp-7.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_8
+            defaultImage: "qrc:/images/icp-8.png"
+            pressedImage: "qrc:/images/icp-8-press.png"
+            dataToSend: "SimICPEIGHT"
             x: window.aButtonsLeft + 85 * 1
             y: 289
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_8_img
-                source: "qrc:/images/icp-8.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_8_img.source = "qrc:/images/icp-8-press.png"
-                    client.sendData("SimICPEIGHT");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_8_img.source = "qrc:/images/icp-8.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_9
+            defaultImage: "qrc:/images/icp-9.png"
+            pressedImage: "qrc:/images/icp-9-press.png"
+            dataToSend: "SimICPNINE"
             x: window.aButtonsLeft + 85 * 2
             y: 289
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_9_img
-                source: "qrc:/images/icp-9.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_9_img.source = "qrc:/images/icp-9-press.png"
-                    client.sendData("SimICPNINE");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_9_img.source = "qrc:/images/icp-9.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
             id: button_icp_0
+            defaultImage: "qrc:/images/icp-0.png"
+            pressedImage: "qrc:/images/icp-0-press.png"
+            dataToSend: "SimICPZERO"
             x: window.aButtonsLeft + 85 * 3
             y: 289
-            width: 64
-            height: 64
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_icp_0_img
-                source: "qrc:/images/icp-0.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_icp_0_img.source = "qrc:/images/icp-0-press.png"
-                    client.sendData("SimICPZERO");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_icp_0_img.source = "qrc:/images/icp-0.png"
-                    sound_release.play();
-                }
-            }
         }
 
-        Rectangle {
+        ICPButton {
+            id: button_wx
+            defaultImage: "qrc:/images/icp-wx.png"
+            pressedImage: "qrc:/images/icp-wx-press.png"
+            dataToSend: "SimSetWX"
+            x: window.aButtonsLeft + 85 * 7
+            y: 110
+        }
+
+        Rectangle  {
             id: button_steer
             x: window.aButtonsLeft + 85 * 4.5
             y: 110
@@ -613,7 +263,6 @@ Window {
                 }
             }
         }
-
 
         Rectangle {
             id: button_dobber
@@ -699,201 +348,34 @@ Window {
             }
         }
 
-        Rectangle {
-            id: button_wx
-            x: window.aButtonsLeft + 85 * 7
-            y: 138
-            width: 46
-            height: 46
-            color: "transparent" // No background color
-
-            // Image for button
-            Image {
-                id: button_wx_img
-                source: "qrc:/images/icp-wx.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    button_wx_img.source = "qrc:/images/icp-wx-press.png"
-                    client.sendData("SimSetWX");
-                    sound_press.play()
-                }
-                onReleased: {
-                    button_wx_img.source = "qrc:/images/icp-wx.png"
-                    sound_release.play();
-                }
-            }
-        }
-
-        Rectangle {
+        ICPWheel {
             id: button_wheel_sym
+            defaultImage: "qrc:/images/wheel.png"
+            pressedImage: "qrc:/images/wheel.png"  // Same image for press/release, or change as needed
+            upData: "SimSymWheelUp"
+            downData: "SimSymWheelDn"
             x: 0
             y: 0
-            width: 40
-            height: 160
-            color: "transparent" // No background color
-            property double simSymY: 0.0
-            property bool simSymSetScrollStart: false
-
-            // Image for button
-            Image {
-                id: button_wheel_sym_img
-                source: "qrc:/images/wheel.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                id: button_wheel_sym_mouseArea
-                anchors.fill: parent
-                onPressed: {
-                    parent.simSymSetScrollStart = true
-                }
-                onWheel: (wheel)=> {
-                    var dir = wheel.angleDelta.y / 120;
-                    if (dir > 0) {
-                        client.sendData("SimSymWheelUp");
-                        sound_scroll.play()
-                    } else {
-                        client.sendData("SimSymWheelDn");
-                        sound_scroll.play()
-                    }
-                }
-                onMouseYChanged: {
-                    if (parent.simSymSetScrollStart)
-                    {
-                        parent.simSymY = mouseY;
-                        parent.simSymSetScrollStart = false
-                    }
-
-                    var delta = parent.simSymY - mouseY;
-                    if (Math.abs(delta) > height / 6.0)
-                    {
-                        if (delta > 0) {
-                            client.sendData("SimSymWheelUp");
-                            sound_scroll.play()
-                        } else {
-                            client.sendData("SimSymWheelDn");
-                            sound_scroll.play()
-                        }
-                        parent.simSymY = mouseY;
-                    }
-                }
-            }
         }
 
-        Rectangle {
+        ICPWheel {
             id: button_wheel_brt
+            defaultImage: "qrc:/images/wheel.png"
+            pressedImage: "qrc:/images/wheel.png"
+            upData: "SimBrtWheelUp"
+            downData: "SimBrtWheelDn"
             x: 0
             y: 200
-            width: 40
-            height: 160
-            color: "transparent" // No background color
-            property double simBrtY: 0.0
-            property bool simBrtSetScrollStart: false
-
-            // Image for button
-            Image {
-                id: button_wheel_brt_img
-                source: "qrc:/images/wheel.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                id: button_wheel_brt_mouseArea
-                anchors.fill: parent
-                onPressed: {
-                    parent.simBrtSetScrollStart = true
-                }
-                onWheel: (wheel)=> {
-                    var dir = wheel.angleDelta.y / 120;
-                    if (dir > 0) {
-                        client.sendData("SimBrtWheelUp");
-                        sound_scroll.play()
-                    } else {
-                        client.sendData("SimBrtWheelDn");
-                        sound_scroll.play()
-                    }
-                }
-                onMouseYChanged: {
-                    if (parent.simBrtSetScrollStart)
-                    {
-                        parent.simBrtY = mouseY;
-                        parent.simBrtSetScrollStart = false
-                    }
-
-                    var delta = parent.simBrtY - mouseY;
-                    if (Math.abs(delta) > height / 6.0)
-                    {
-                        if (delta > 0) {
-                            client.sendData("SimBrtWheelUp");
-                            sound_scroll.play()
-                        } else {
-                            client.sendData("SimBrtWheelDn");
-                            sound_scroll.play()
-                        }
-                        parent.simBrtY = mouseY;
-                    }
-                }
-            }
         }
 
-        Rectangle {
+        ICPWheel {
             id: button_ret
-            width: 40
-            height: 160
-            x: parent.width - width - 35
+            defaultImage: "qrc:/images/wheel.png"
+            pressedImage: "qrc:/images/wheel.png"
+            upData: "SimRetUp"
+            downData: "SimRetDn"
+            x: parent.width - 35
             y: 0
-            color: "transparent" // No background color
-            property double simRetY: 0.0
-            property bool simRetSetScrollStart: false
-
-            // Image for button
-            Image {
-                id: button_ret_img
-                source: "qrc:/images/wheel.png" // Default image
-                anchors.fill: parent
-            }
-
-            MouseArea {
-                id: button_ret_mouseArea
-                anchors.fill: parent
-                onPressed: {
-                    parent.simRetSetScrollStart = true
-                }
-                onWheel: (wheel)=> {
-                    var dir = wheel.angleDelta.y / 120;
-                    if (dir > 0) {
-                        client.sendData("SimRetUp");
-                        sound_scroll.play()
-                    } else {
-                        client.sendData("SimRetDn");
-                        sound_scroll.play()
-                    }
-                }
-                onMouseYChanged: {
-                    if (parent.simRetSetScrollStart)
-                    {
-                        parent.simRetY = mouseY;
-                        parent.simRetSetScrollStart = false
-                    }
-
-                    var delta = parent.simRetY - mouseY;
-                    if (Math.abs(delta) > height / 6.0)
-                    {
-                        if (delta > 0) {
-                            client.sendData("SimRetUp");
-                            sound_scroll.play()
-                        } else {
-                            client.sendData("SimRetDn");
-                            sound_scroll.play()
-                        }
-                        parent.simRetY = mouseY;
-                    }
-                }
-            }
         }
     }
 
