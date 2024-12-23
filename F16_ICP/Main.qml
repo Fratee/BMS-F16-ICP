@@ -898,39 +898,65 @@ Window {
     }
 
     // Button to open the input field
-   Button {
+    Button {
         text: "IP"
         x: parent.width - width - 35
         y: parent.height - height
         onClicked: {
-            if (!ipInput.visible)
+            if (!settingsRect.visible)
             {
-                ipInput.visible = true; // Show the input field when the button is pressed
-                ipInput.focus = true;  // Focus on the text field
+                settingsRect.visible = true; // Show the input field when the button is pressed
+                ipInput.text = settings.ipAddress + ":" + settings.port.toString()
             }
             else
             {
                 settings.ipAddress = ipInput.text;  // Save the IP to settings
-                ipInput.visible = false;  // Hide the input field after input
+                settingsRect.visible = false;  // Hide the input field after input
             }
         }
     }
 
-    // Text Field for IP input
-    TextField {
-        id: ipInput
-        width: parent.width - 40
-        height: 40
-        anchors.centerIn: parent
-        visible: false  // Initially hidden
-        placeholderText: settings.ipAddress + ":" + settings.port.toString()
+    Rectangle {
+        id: settingsRect
+        width: parent.width
+        height: parent.height
+        color: "#AAAAAA"
+        visible: false
 
-        // Handle when the user finishes input
-        onAccepted: {
-            settings.ipAddress = ipInput.text.split(":")[0].trim();
-            settings.port = ipInput.text.split(":")[1].trim();
-            console.log("IP Address updated to: " + settings.ipAddress + " port " + settings.port.toString());
-            ipInput.visible = false;  // Hide the input field after input
+        // Text Field for IP input
+        TextField {
+            id: ipInput
+            width: parent.width - 120
+            height: 40
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.margins: 10
+            placeholderText: "IP_ADDRESS:12345"
+
+            // Handle when the user finishes input
+            onAccepted: {
+                settings.ipAddress = ipInput.text.split(":")[0].trim();
+                settings.port = ipInput.text.split(":")[1].trim();
+                console.log("IP Address updated to: " + settings.ipAddress + " port " + settings.port.toString());
+                settingsRect.visible = false;
+            }
         }
-    }
+
+        // Button to open the input field
+        Button {
+            text: "CLOSE"
+            x: parent.width - width - 70
+            y: parent.height - height
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.margins: 40
+            onClicked: {
+                settings.ipAddress = ipInput.text.split(":")[0].trim();
+                settings.port = ipInput.text.split(":")[1].trim();
+                console.log("IP Address updated to: " + settings.ipAddress + " port " + settings.port.toString());
+                settingsRect.visible = false;
+            }
+        }
+   }
+
 }
