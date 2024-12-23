@@ -73,7 +73,6 @@ Window {
                 onReleased: {
                     buttonImage.source = "qrc:/images/comm1.png"
                     sound_release.play();
-                    console.log("Button clicked!")
                 }
             }
         }
@@ -102,7 +101,6 @@ Window {
                 }
                 onReleased: {
                     button_comm2_img.source = "qrc:/images/comm2.png"
-                    console.log("Button clicked!");
                     sound_release.play();
                 }
             }
@@ -594,12 +592,10 @@ Window {
                     if (button_steer_mouseArea.containsMouse) {
                         if (button_steer_mouseArea.mouseY < parent.height / 2) {
                             client.sendData("SimICPNext");
-                            console.log("Top half pressed!")
                             button_steer_img.source = "qrc:/images/rocker-up.png"
                             sound_press.play()
                         } else {
                             client.sendData("SimICPPrevious");
-                            console.log("Bottom half pressed!")
                             button_steer_img.source = "qrc:/images/rocker-down.png"
                             sound_press.play()
                         }
@@ -633,25 +629,20 @@ Window {
                 anchors.fill: parent
                 onPressed: {
                     if (button_dobber_mouseArea.containsMouse) {
-                        console.log(button_dobber_mouseArea.mouseX);
                         if (button_dobber_mouseArea.mouseY < parent.height / 3) {
                             client.sendData("SimICPDEDUP");
-                            console.log("SimICPDEDUP")
                             button_dobber_img.source = "qrc:/images/dobber_up.png"
                             sound_press.play()
                         } else if (button_dobber_mouseArea.mouseY > parent.height * 2 / 3) {
                             client.sendData("SimICPDEDDOWN");
-                            console.log("SimICPDEDDOWN")
                             button_dobber_img.source = "qrc:/images/dobber_down.png"
                             sound_press.play()
                         } else if (button_dobber_mouseArea.mouseX > parent.width * 2 / 3) {
                             client.sendData("SimICPDEDSEQ");
-                            console.log("SimICPDEDSEQ")
                             button_dobber_img.source = "qrc:/images/dobber_right.png"
                             sound_press.play()
                         } else if (button_dobber_mouseArea.mouseX < parent.width / 3) {
                             client.sendData("SimICPResetDED");
-                            console.log("SimICPResetDED")
                             button_dobber_img.source = "qrc:/images/dobber_left.png"
                             sound_press.play()
                         }
@@ -686,12 +677,10 @@ Window {
                     if (button_flir_mouseArea.containsMouse) {
                         if (button_flir_mouseArea.mouseY < parent.height / 2) {
                             client.sendData("SimFlirLevelUp");
-                            console.log("Top half pressed!")
                             button_flir_img.source = "qrc:/images/rocker-up.png"
                             sound_press.play()
                         } else {
                             client.sendData("SimFlirLevelDown");
-                            console.log("Bottom half pressed!")
                             button_flir_img.source = "qrc:/images/rocker-down.png"
                             sound_press.play()
                         }
@@ -755,11 +744,9 @@ Window {
                     if (button_wheel_sym_mouseArea.containsMouse) {
                         if (button_wheel_sym_mouseArea.mouseY < parent.height / 2) {
                             client.sendData("SimSymWheelUp");
-                            console.log("Top half pressed!")
                             sound_press.play()
                         } else {
                             client.sendData("SimSymWheelDn");
-                            console.log("Bottom half pressed!")
                             sound_press.play()
                         }
                     }
@@ -789,11 +776,9 @@ Window {
                     if (button_wheel_brt_mouseArea.containsMouse) {
                         if (button_wheel_brt_mouseArea.mouseY < parent.height / 2) {
                             client.sendData("SimBrtWheelUp");
-                            console.log("Top half pressed!")
                             sound_press.play()
                         } else {
                             client.sendData("SimBrtWheelDn");
-                            console.log("Bottom half pressed!")
                             sound_press.play()
                         }
                     }
@@ -823,11 +808,9 @@ Window {
                     if (button_ret_mouseArea.containsMouse) {
                         if (button_ret_mouseArea.mouseY < parent.height / 2) {
                             client.sendData("SimRetUp");
-                            console.log("Top half pressed!")
                             sound_press.play()
                         } else {
                             client.sendData("SimRetDn");
-                            console.log("Bottom half pressed!")
                             sound_press.play()
                         }
                     }

@@ -26,7 +26,7 @@ void TcpClient::connectToServer() {
     qDebug() << "Attempting to connect to server:" << serverHost << ":" << serverPort;
     socket->connectToHost(serverHost, serverPort);
 
-    if (!socket->waitForConnected(5000)) {
+    if (!socket->waitForConnected(2500)) {
         qDebug() << "Error connecting to server:" << socket->errorString();
     }
 }
