@@ -20,6 +20,7 @@ Window {
     visibility: Window.FullScreen
 
     property var aButtonsLeft: 60
+    property var aButtonsTop: 15
 
     SoundEffect {
         id: sound_press
@@ -39,7 +40,6 @@ Window {
         volume: 2.0
     }
 
-
     // Gray background
     Rectangle {
         id: grayBackground
@@ -57,7 +57,7 @@ Window {
         Rectangle {
             id: button_comm1
             x: window.aButtonsLeft
-            y: 18
+            y: window.aButtonsTop
             width: 64
             height: 64
             color: "transparent" // No background color
@@ -86,7 +86,7 @@ Window {
         Rectangle {
             id: button_comm2
             x: window.aButtonsLeft + 85
-            y: 18
+            y: window.aButtonsTop
             width: 64
             height: 64
             color: "transparent" // No background color
@@ -115,7 +115,7 @@ Window {
         Rectangle {
             id: button_iff
             x: window.aButtonsLeft + 85 * 2
-            y: 18
+            y: window.aButtonsTop
             width: 64
             height: 64
             color: "transparent" // No background color
@@ -144,7 +144,7 @@ Window {
         Rectangle {
             id: button_list
             x: window.aButtonsLeft + 85 * 3
-            y: 18
+            y: window.aButtonsTop
             width: 64
             height: 64
             color: "transparent" // No background color
@@ -173,7 +173,7 @@ Window {
         Rectangle {
             id: button_a_a
             x: window.aButtonsLeft + 85 * 4
-            y: 18
+            y: window.aButtonsTop
             width: 64
             height: 64
             color: "transparent" // No background color
@@ -202,7 +202,7 @@ Window {
         Rectangle {
             id: button_a_g
             x: window.aButtonsLeft + 85 * 5
-            y: 18
+            y: window.aButtonsTop
             width: 64
             height: 64
             color: "transparent" // No background color
