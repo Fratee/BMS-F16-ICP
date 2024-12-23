@@ -33,6 +33,12 @@ Window {
         volume: 1.0
     }
 
+    SoundEffect {
+        id: sound_scroll
+        source: "qrc:/sounds/scroll.wav"
+        volume: 2.0
+    }
+
 
     // Gray background
     Rectangle {
@@ -729,6 +735,8 @@ Window {
             width: 40
             height: 160
             color: "transparent" // No background color
+            property double simSymY: 0.0
+            property bool simSymSetScrollStart: false
 
             // Image for button
             Image {
@@ -741,25 +749,37 @@ Window {
                 id: button_wheel_sym_mouseArea
                 anchors.fill: parent
                 onPressed: {
-                    if (button_wheel_sym_mouseArea.containsMouse) {
-                        if (button_wheel_sym_mouseArea.mouseY < parent.height / 2) {
-                            client.sendData("SimSymWheelUp");
-                            sound_press.play()
-                        } else {
-                            client.sendData("SimSymWheelDn");
-                            sound_press.play()
-                        }
-                    }
+                    parent.simSymSetScrollStart = true
                 }
                 onWheel: (wheel)=> {
                     var dir = wheel.angleDelta.y / 120;
                     if (dir > 0) {
                         client.sendData("SimSymWheelUp");
-                        sound_press.play()
+                        sound_scroll.play()
                     } else {
                         client.sendData("SimSymWheelDn");
-                        sound_press.play()
+                        sound_scroll.play()
                     }
+                }
+            }
+            onMouseYChanged: {
+                if (parent.simSymSetScrollStart)
+                {
+                    parent.simSymY = mouseY;
+                    parent.simSymSetScrollStart = false
+                }
+
+                var delta = parent.simSymY - mouseY;
+                if (Math.abs(delta) > height / 6.0)
+                {
+                    if (delta > 0) {
+                        client.sendData("SimSymWheelUp");
+                        sound_scroll.play()
+                    } else {
+                        client.sendData("SimSymWheelDn");
+                        sound_scroll.play()
+                    }
+                    parent.simSymY = mouseY;
                 }
             }
         }
@@ -771,6 +791,8 @@ Window {
             width: 40
             height: 160
             color: "transparent" // No background color
+            property double simBrtY: 0.0
+            property bool simBrtSetScrollStart: false
 
             // Image for button
             Image {
@@ -783,24 +805,36 @@ Window {
                 id: button_wheel_brt_mouseArea
                 anchors.fill: parent
                 onPressed: {
-                    if (button_wheel_brt_mouseArea.containsMouse) {
-                        if (button_wheel_brt_mouseArea.mouseY < parent.height / 2) {
-                            client.sendData("SimBrtWheelUp");
-                            sound_press.play()
-                        } else {
-                            client.sendData("SimBrtWheelDn");
-                            sound_press.play()
-                        }
-                    }
+                    parent.simBrtSetScrollStart = true
                 }
                 onWheel: (wheel)=> {
                     var dir = wheel.angleDelta.y / 120;
                     if (dir > 0) {
                         client.sendData("SimBrtWheelUp");
-                        sound_press.play()
+                        sound_scroll.play()
                     } else {
                         client.sendData("SimBrtWheelDn");
-                        sound_press.play()
+                        sound_scroll.play()
+                    }
+                }
+                onMouseYChanged: {
+                    if (parent.simBrtSetScrollStart)
+                    {
+                        parent.simBrtY = mouseY;
+                        parent.simBrtSetScrollStart = false
+                    }
+
+                    var delta = parent.simBrtY - mouseY;
+                    if (Math.abs(delta) > height / 6.0)
+                    {
+                        if (delta > 0) {
+                            client.sendData("SimBrtWheelUp");
+                            sound_scroll.play()
+                        } else {
+                            client.sendData("SimBrtWheelDn");
+                            sound_scroll.play()
+                        }
+                        parent.simBrtY = mouseY;
                     }
                 }
             }
@@ -813,6 +847,8 @@ Window {
             x: parent.width - width - 35
             y: 0
             color: "transparent" // No background color
+            property double simRetY: 0.0
+            property bool simRetSetScrollStart: false
 
             // Image for button
             Image {
@@ -825,24 +861,36 @@ Window {
                 id: button_ret_mouseArea
                 anchors.fill: parent
                 onPressed: {
-                    if (button_ret_mouseArea.containsMouse) {
-                        if (button_ret_mouseArea.mouseY < parent.height / 2) {
-                            client.sendData("SimRetUp");
-                            sound_press.play()
-                        } else {
-                            client.sendData("SimRetDn");
-                            sound_press.play()
-                        }
-                    }
+                    parent.simRetSetScrollStart = true
                 }
                 onWheel: (wheel)=> {
                     var dir = wheel.angleDelta.y / 120;
                     if (dir > 0) {
                         client.sendData("SimRetUp");
-                        sound_press.play()
+                        sound_scroll.play()
                     } else {
                         client.sendData("SimRetDn");
-                        sound_press.play()
+                        sound_scroll.play()
+                    }
+                }
+                onMouseYChanged: {
+                    if (parent.simRetSetScrollStart)
+                    {
+                        parent.simRetY = mouseY;
+                        parent.simRetSetScrollStart = false
+                    }
+
+                    var delta = parent.simRetY - mouseY;
+                    if (Math.abs(delta) > height / 6.0)
+                    {
+                        if (delta > 0) {
+                            client.sendData("SimRetUp");
+                            sound_scroll.play()
+                        } else {
+                            client.sendData("SimRetDn");
+                            sound_scroll.play()
+                        }
+                        parent.simRetY = mouseY;
                     }
                 }
             }
