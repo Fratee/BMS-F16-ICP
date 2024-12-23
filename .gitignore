@@ -52,3 +52,7 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+/server/.qtc_clangd/.cache
+/F16_ICP/build/
+/server/build/
+/server/.qmake.stash
