@@ -76,6 +76,7 @@ qt_add_resources(appF16_ICP "resources"
         images/wheel.png
         sounds/button-pressed.wav
         sounds/button-released.wav
+        sounds/scroll.wav
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
