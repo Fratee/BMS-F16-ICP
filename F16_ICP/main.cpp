@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
         Qt::QueuedConnection);
 
     QSettings settings(app.organizationName(), app.applicationName());
-    qDebug() << "Stored IP Address: " << settings.value("ipAddress", "127.0.0.1").toString();
-    qDebug() << "Stored port: " << settings.value("port", 12345).toInt();
+    qDebug() << "Stored IP Address: " << settings.value("ipAddress", "192.168.1.1").toString();
+    qDebug() << "Stored port: " << settings.value("port", 12744).toInt();
     engine.rootContext()->setContextProperty("settings", &settings);
 
     engine.loadFromModule("F16_ICP", "Main");

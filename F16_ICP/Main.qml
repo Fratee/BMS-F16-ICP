@@ -13,8 +13,8 @@ Window {
     // Use Settings to persist the IP across app starts
     Settings {
         id: settings
-        property string ipAddress: "127.0.0.1" // Default IP or read from settings file
-        property int port: 12345 // Default IP or read from settings file
+        property string ipAddress: "192.168.1.1" // Default IP or read from settings file
+        property int port: 12744 // Default IP or read from settings file
     }
 
     visibility: Window.FullScreen

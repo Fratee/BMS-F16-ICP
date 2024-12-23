@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 
     // Create and start the server
     TcpServer server;
-    if (!server.startServer(12345)) {
+    if (!server.startServer(12744)) {
         qDebug() << "Failed to start the server!";
         return -1;
     }

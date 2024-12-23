@@ -21,7 +21,7 @@ TcpClient::TcpClient(QSettings *settings, QObject *parent)
 
 void TcpClient::connectToServer() {
     serverHost = appSettings->value("ipAddress", "127.0.0.1").toString();
-    serverPort = appSettings->value("port", 12345).toInt();
+    serverPort = appSettings->value("port", 12744).toInt();
 
     qDebug() << "Attempting to connect to server:" << serverHost << ":" << serverPort;
     socket->connectToHost(serverHost, serverPort);
