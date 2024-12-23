@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtMultimedia
-import Qt.labs.settings
+import QtCore
 
 Window {
     id: window
