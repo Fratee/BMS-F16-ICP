@@ -8,7 +8,7 @@ Window {
     width: 800
     height: 400
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("F16 ICP")
 
     // Use Settings to persist the IP across app starts
     property var settings: Settings {
