@@ -11,9 +11,10 @@ Window {
     title: qsTr("F16 ICP")
 
     // Use Settings to persist the IP across app starts
-    property var settings: Settings {
+    Settings {
         id: settings
-        property string ipAddress: "192.168.1.28" // Default IP or read from settings file
+        property string ipAddress: "127.0.0.1" // Default IP or read from settings file
+        property int port: 12345 // Default IP or read from settings file
     }
 
     visibility: Window.FullScreen
@@ -861,19 +862,14 @@ Window {
         height: 40
         anchors.centerIn: parent
         visible: false  // Initially hidden
-        placeholderText: "Enter IP Address"
+        placeholderText: settings.ipAddress + ":" + settings.port.toString()
 
         // Handle when the user finishes input
         onAccepted: {
-            settings.ipAddress = ipInput.text;  // Save the IP to settings
+            settings.ipAddress = ipInput.text.split(":")[0].trim();
+            settings.port = ipInput.text.split(":")[1].trim();
+            console.log("IP Address updated to: " + settings.ipAddress + " port " + settings.port.toString);
             ipInput.visible = false;  // Hide the input field after input
-        }
-    }
-
-    Component.onCompleted: {
-        // Check if an IP address is saved in the settings, and use it
-        if (settings.ipAddress) {
-            console.log("Saved IP Address: " + settings.ipAddress);
         }
     }
 }

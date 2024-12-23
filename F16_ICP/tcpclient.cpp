@@ -1,10 +1,12 @@
 #include "tcpclient.h"
 #include <QDebug>
 
-TcpClient::TcpClient(QObject *parent)
+TcpClient::TcpClient(QSettings *settings, QObject *parent)
     : QObject(parent),
     socket(new QTcpSocket(this)),
     keepAliveTimer(new QTimer(this)) {
+
+    appSettings = settings;
 
     // Connect signals for socket events
     connect(socket, &QTcpSocket::connected, this, &TcpClient::onConnected);
@@ -17,12 +19,12 @@ TcpClient::TcpClient(QObject *parent)
     keepAliveTimer->start(5000); // Check connection every 5 seconds
 }
 
-void TcpClient::connectToServer(const QString &host, quint16 port) {
-    serverHost = host;
-    serverPort = port;
+void TcpClient::connectToServer() {
+    serverHost = appSettings->value("ipAddress", "127.0.0.1").toString();
+    serverPort = appSettings->value("port", 12345).toInt();
 
-    qDebug() << "Attempting to connect to server:" << host << ":" << port;
-    socket->connectToHost(host, port);
+    qDebug() << "Attempting to connect to server:" << serverHost << ":" << serverPort;
+    socket->connectToHost(serverHost, serverPort);
 
     if (!socket->waitForConnected(5000)) {
         qDebug() << "Error connecting to server:" << socket->errorString();
@@ -35,7 +37,7 @@ void TcpClient::sendData(const QString &message) {
         socket->write(message.toUtf8());
     } else {
         qDebug() << "Not connected to server.";
-        connectToServer(serverHost, serverPort);
+        connectToServer();
     }
 }
 
@@ -66,6 +68,6 @@ void TcpClient::onKeepAliveTimeout() {
         // Reconnect if not connected
         qDebug() << "Socket is not connected. Attempting to reconnect...";
         socket->abort(); // Ensure any existing connection is closed
-        socket->connectToHost(serverHost, serverPort);
+        connectToServer();
     }
 }

@@ -4,13 +4,14 @@
 #include <QObject>
 #include <QTcpSocket>
 #include <QTimer>
+#include <QSettings>
 
 class TcpClient : public QObject {
     Q_OBJECT
 
 public:
-    explicit TcpClient(QObject *parent = nullptr);
-    void connectToServer(const QString &host, quint16 port);
+    explicit TcpClient(QSettings *settings, QObject *parent = nullptr);
+    void connectToServer();
 
 public slots:
     void sendData(const QString &message);
@@ -27,6 +28,7 @@ private:
     QTimer *keepAliveTimer;
     QString serverHost;
     quint16 serverPort;
+    QSettings *appSettings;
 };
 
 #endif // TCPCLIENT_H

@@ -7,15 +7,9 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
-    // Create a QSettings object to store persistent settings
-    QSettings settings("Frate", "F16_ICP");
-
-    // Retrieve the stored IP address (or use a default if not set)
-    QString storedIpAddress = settings.value("ipAddress", "192.168.1.28").toString();
-
-    // Log the retrieved IP address (for debugging purposes)
-    qDebug() << "Stored IP Address: " << storedIpAddress;
+    app.setOrganizationName("Frate");
+    app.setOrganizationDomain("bagigi.ovh");
+    app.setApplicationName("F16_ICP");
 
     QQmlApplicationEngine engine;
     QObject::connect(
@@ -25,15 +19,15 @@ int main(int argc, char *argv[])
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
 
+    QSettings settings(app.organizationName(), app.applicationName());
+    qDebug() << "Stored IP Address: " << settings.value("ipAddress", "127.0.0.1").toString();
+    qDebug() << "Stored port: " << settings.value("port", 12345).toInt();
     engine.rootContext()->setContextProperty("settings", &settings);
-    engine.rootContext()->setContextProperty("storedIpAddress", storedIpAddress);
 
     engine.loadFromModule("F16_ICP", "Main");
 
     // Create the TCP Client instance
-    TcpClient client;
-    client.connectToServer(storedIpAddress, 12345);
-
+    TcpClient client(&settings);
     engine.rootContext()->setContextProperty("client", &client);
 
     return app.exec();
