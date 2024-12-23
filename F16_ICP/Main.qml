@@ -751,6 +751,16 @@ Window {
                         }
                     }
                 }
+                onWheel: (wheel)=> {
+                    var dir = wheel.angleDelta.y / 120;
+                    if (dir > 0) {
+                        client.sendData("SimSymWheelUp");
+                        sound_press.play()
+                    } else {
+                        client.sendData("SimSymWheelDn");
+                        sound_press.play()
+                    }
+                }
             }
         }
 
@@ -783,6 +793,16 @@ Window {
                         }
                     }
                 }
+                onWheel: (wheel)=> {
+                    var dir = wheel.angleDelta.y / 120;
+                    if (dir > 0) {
+                        client.sendData("SimBrtWheelUp");
+                        sound_press.play()
+                    } else {
+                        client.sendData("SimBrtWheelDn");
+                        sound_press.play()
+                    }
+                }
             }
         }
 
@@ -813,6 +833,16 @@ Window {
                             client.sendData("SimRetDn");
                             sound_press.play()
                         }
+                    }
+                }
+                onWheel: (wheel)=> {
+                    var dir = wheel.angleDelta.y / 120;
+                    if (dir > 0) {
+                        client.sendData("SimRetUp");
+                        sound_press.play()
+                    } else {
+                        client.sendData("SimRetDn");
+                        sound_press.play()
                     }
                 }
             }
@@ -851,7 +881,7 @@ Window {
         onAccepted: {
             settings.ipAddress = ipInput.text.split(":")[0].trim();
             settings.port = ipInput.text.split(":")[1].trim();
-            console.log("IP Address updated to: " + settings.ipAddress + " port " + settings.port.toString);
+            console.log("IP Address updated to: " + settings.ipAddress + " port " + settings.port.toString());
             ipInput.visible = false;  // Hide the input field after input
         }
     }
