@@ -23,6 +23,10 @@ qt_add_qml_module(appF16_ICP
         QML_FILES ICPButton.qml ICPWheel.qml
 )
 
+set_target_properties(appF16_ICP PROPERTIES
+    QT_ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/android-sources
+)
+
 # Add resources
 qt_add_resources(appF16_ICP "resources"
     PREFIX /
@@ -84,10 +88,6 @@ qt_add_resources(appF16_ICP "resources"
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
 set_target_properties(appF16_ICP PROPERTIES
-#    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appF16_ICP
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
 
