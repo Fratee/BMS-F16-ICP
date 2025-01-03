@@ -365,7 +365,7 @@ Window {
             upData: "SimBrtWheelUp"
             downData: "SimBrtWheelDn"
             x: 0
-            y: 200
+            y: parent.parent.height - 160
         }
 
         ICPWheel {
@@ -374,7 +374,7 @@ Window {
             pressedImage: "qrc:/images/wheel.png"
             upData: "SimRetUp"
             downData: "SimRetDn"
-            x: parent.width - 35
+            x: parent.parent.width - 40 - 35
             y: 0
         }
     }
